@@ -35,9 +35,11 @@ function updateTotals() {
 }
 
 // rendering the transaction history list based on the in-memory array. Each entry has a delete button with a data attribute for its index in the array
+// display in reverse order (most recent first)
 function renderHistory() {
   historyList.innerHTML = "";
-  transactionsHistory.forEach((e, idx) => {
+  for (let idx = transactionsHistory.length - 1; idx >= 0; idx--) {
+    const e = transactionsHistory[idx];
     const li = document.createElement("li");
     li.dataset.index = idx;
     li.textContent = `${new Date(e.date).toLocaleDateString()} | ${e.desc} - ${e.amount}`;
@@ -47,8 +49,9 @@ function renderHistory() {
     removeBtn.classList.add("delete");
     li.appendChild(removeBtn);
     historyList.appendChild(li);
-  });
+  }
 }
+
 
 // remove an entry by its array index and refresh UI/storage
 function removeTransaction(index) {
@@ -112,9 +115,9 @@ clearBtn.addEventListener("click", () => {
   transactionsHistory.length = 0;
   historyList.innerHTML = "";
   incomeCounter = 0;
-  totalIncome.innerHTML = "Rs. 0";
-  totalExpense.innerHTML = "Rs. 0";
-  balance.innerHTML = "Rs. 0";
+  totalIncome.innerHTML = "Rs. 0.00";
+  totalExpense.innerHTML = "Rs. 0.00";
+  balance.innerHTML = "Rs. 0.00";
 });
 
 // ---------- filter history by type ----------
