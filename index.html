@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="ui">
+        <button id="themeToggle">
+          <img class="imgtoggle" src="day-and-night.png" alt="" srcset="" />
+        </button>
+
+        <h1>Expense Tracker</h1>
+
+        <div class="balance-box">
+          <h3>Your Balance</h3>
+          <h2 id="balance">Rs 0</h2>
+        </div>
+
+        <div class="summary">
+          <div class="income">
+            <h4>Income</h4>
+            <p id="totalIncome">Rs 0</p>
+          </div>
+
+          <div class="expense">
+            <h4>Expense</h4>
+            <p id="totalExpense">Rs 0</p>
+          </div>
+        </div>
+
+        <h3>Add New Transaction</h3>
+
+        <form id="form">
+          <input type="text" id="text" placeholder="Description" />
+
+          <input type="number" id="amount" placeholder="Amount" />
+
+          <select id="type">
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+
+          <button id="addTransaction">Add Transaction</button>
+        </form>
+      </div>
+      <div class="hist">
+        <h3>History</h3>
+        <form action="" id="historyFilter">
+          <select name="filter" id="filter">
+            <option value="all">All Transactions</option>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+        </form>
+
+        <ul id="list"></ul>
+        <button id="clearBtn" class="delete">Clear</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
